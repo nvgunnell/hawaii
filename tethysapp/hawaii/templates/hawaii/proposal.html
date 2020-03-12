@@ -9,53 +9,34 @@
 {% endblock %}
 
 {% block app_content %}
+<!DOCTYPE html>
 
-<head>
-
-         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin=""></script>
-
-    <style>
-        #mapid { height: 725px; }
-
-        h1 {
-            text-align: center;
-        }
-        h2 {
-            text-align: center;
-            font-size: 150%;
-        }
-    </style>
-</head>
-
-  <h1>Calculating Mass Flux in the Hawaiian Islands</h1>
-  <h2>The Gold Diggers</h2>
-<div>
-  <h3>About the app</h3>
-  <p>This app will allow you to calculate mass flux across the Hawaiian Islands. Use your cursor to create points along
-  ridge-lines that will be used to interpolate a pre-erosional elevation.</p>
-</div>
-
-<div id="mapid"></div>
-
-<script>
-    var mymap = L.map('mapid').setView([20.6, -157.4], 8);
-
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoibnZndW5uZWxsIiwiYSI6ImNrNnM4NnVyNzAxbGYzZXBibXA1NnZtb2cifQ.tzoW7hq0QOZmpTTAQNpoJw'
-}).addTo(mymap);
-
-</script>
-<body></body>
+  <h1>The Proposal</h1>
+  <h4><em>Erosion rates on the Hawaiian Island.</em></h4>
+  <ul>
+	  <li><a href="#why">What is the mass flux rate on the Hawaiian Islands</a></li>
+	  <li><a href="#how">How does it work?</a></li>
+  </ul>
+  <section>
+    <article id="why">
+      <h2>What is the mass flux rate on the Hawaiian Islands?</h2>
+      <p>The Hawaiian Islands, known for its gorgeous beaches and beautiful hikes, are disappearing. But how fast are the islands being eroded? The big island is growing, but the others are only shrinking now. This app will give estimates on the flux of material out of Hawaii. This can be useful to researchers who want to know how much material is leaving. It also then provides an average rate to compare to modern rates from suspended load, solute and bed load.</p>
+    </article>
+    <figure>
+      <img src=><img src="IMG_4559.JPG" width="400" height="300" alt="IMG 4559"/>
+      <figcaption>Waimea Canyon</figcaption>
+    </figure>
+    <article id="how">
+      <h2>How does it work?</h2>
+      <p>The user needs to choose a region they are interested in and draw a polygon on to the map. They then need to create points along the ridges in their chosen area.</p>
+      <p>The app will take these points and extract the elevation data from a DEM. It will then interpolate these points to create a new surface. This new surface is the <q>pre-erosion</q> surface using the assumption that there has been none or very little erosion at the ridges.</p>
+     <p>Then it will calculate the volume of the chosen area with the original DEM and the new surface. It will then find the volume of material that has left the system. Then, with an inputted age of the rock and the density, it will calculate the mass flux in t/km<sup>2</sup>/yr.</p>
+    </article>
+    <figure>
+      <img src="Oahu.jpeg" width="400" height="300" alt="Oahu">
+      <figcaption>Oahu</figcaption>
+    </figure>
+  </section>
 
 {% endblock %}
 
@@ -84,9 +65,4 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 {% endblock %}
 
 {% block app_actions %}
-  {% gizmo save_button %}
-  {% gizmo edit_button %}
-  {% gizmo remove_button %}
-  {% gizmo previous_button %}
-  {% gizmo next_button %}
 {% endblock %}

@@ -29,6 +29,11 @@ class Hawaii(TethysAppBase):
                 url='hawaii',
                 controller='hawaii.controllers.home'
             ),
+            UrlMap(
+                name='proposal',
+                url='proposal',
+                controller='hawaii.controllers.proposal'
+            )
         )
 
         return url_maps
