@@ -12,7 +12,7 @@ class Hawaii(TethysAppBase):
     package = 'hawaii'
     root_url = 'hawaii'
     color = '#003366'
-    description = ''
+    description = 'An app to estimate mass flux'
     tags = ''
     enable_feedback = False
     feedback_emails = []
