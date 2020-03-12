@@ -74,10 +74,10 @@ def home(request):
     return render(request, 'hawaii/home.html', context)
 
 @login_required()
-def proposal(request):
+def background(request):
     """
     Controller for the proposal page.
     """
     context = {}
 
-    return render(request,'hawaii/proposal.html',context)
+    return render(request,'hawaii/background.html',context)

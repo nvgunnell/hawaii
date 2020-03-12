@@ -12,7 +12,7 @@ class Hawaii(TethysAppBase):
     package = 'hawaii'
     root_url = 'hawaii'
     color = '#003366'
-    description = 'An app to estimate mass flux'
+    description = 'An app to estimate mass flux on the Hawaiian Islands'
     tags = ''
     enable_feedback = False
     feedback_emails = []
@@ -30,9 +30,9 @@ class Hawaii(TethysAppBase):
                 controller='hawaii.controllers.home'
             ),
             UrlMap(
-                name='proposal',
-                url='proposal',
-                controller='hawaii.controllers.proposal'
+                name='background',
+                url='background',
+                controller='hawaii.controllers.background'
             )
         )
 
