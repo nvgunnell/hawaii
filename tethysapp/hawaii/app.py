@@ -8,10 +8,10 @@ class Hawaii(TethysAppBase):
 
     name = 'Hawaii'
     index = 'hawaii:home'
-    icon = 'hawaii/images/icon.gif'
+    icon = 'hawaii/images/island.jpg'
     package = 'hawaii'
     root_url = 'hawaii'
-    color = '#f39c12'
+    color = '#003366'
     description = ''
     tags = ''
     enable_feedback = False
