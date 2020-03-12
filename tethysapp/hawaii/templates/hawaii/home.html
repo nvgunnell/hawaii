@@ -1,4 +1,5 @@
 {% extends "hawaii/base.html" %}
+{% load static %}
 {% load tethys_gizmos %}
 
 {% block header_buttons %}
@@ -8,14 +9,54 @@
 {% endblock %}
 
 {% block app_content %}
-  <h1>Welcome to your Tethys App!</h1>
-  <p>Take advantage of beautiful typography to organize the content of your app:</p>
-  <h1>Heading 1</h1>
-  <h2>Heading 2</h2>
-  <h3>Heading 3</h3>
-  <h4>Heading 4</h4>
-  <h5>Heading 5</h5>
-  <h6>Heading 6</h6>
+
+<head>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+
+    <style>
+        #mapid { height: 725px; }
+
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+            font-size: 150%;
+        }
+    </style>
+</head>
+
+  <h1>Calculating Mass Flux in the Hawaiian Islands</h1>
+  <h2>The Gold Diggers</h2>
+<div>
+  <h3>About the app</h3>
+  <p>This app will allow you to calculate mass flux across the Hawaiian Islands. Use your cursor to create points along
+  ridge-lines that will be used to interpolate a pre-erosional elevation.</p>
+</div>
+
+<div id="mapid"></div>
+
+<script>
+    var mymap = L.map('mapid').setView([20.6, -157.4], 8);
+
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoibnZndW5uZWxsIiwiYSI6ImNrNnM4NnVyNzAxbGYzZXBibXA1NnZtb2cifQ.tzoW7hq0QOZmpTTAQNpoJw'
+}).addTo(mymap);
+
+</script>
+<body></body>
+
 {% endblock %}
 
 {# Use the after_app_content block for modals #}
