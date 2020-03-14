@@ -76,8 +76,26 @@ def home(request):
 @login_required()
 def background(request):
     """
-    Controller for the proposal page.
+    Controller for the background page.
     """
     context = {}
 
     return render(request,'hawaii/background.html',context)
+
+@login_required()
+def mockups(request):
+    """
+    Controller for the mockup page.
+    """
+    context = {}
+
+    return render(request,'hawaii/mockups.html',context)
+
+@login_required()
+def proposal (request):
+    """
+    Controller for the proposal page.
+    """
+    context = {}
+
+    return render(request,'hawaii/proposal.html',context)

@@ -33,6 +33,16 @@ class Hawaii(TethysAppBase):
                 name='background',
                 url='background',
                 controller='hawaii.controllers.background'
+            ),
+            UrlMap(
+                name='mockups',
+                url='mockups',
+                controller='hawaii.controllers.mockups'
+            ),
+            UrlMap(
+                name='proposal',
+                url='proposal',
+                controller='hawaii.controllers.proposal'
             )
         )
 
