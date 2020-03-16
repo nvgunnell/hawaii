@@ -99,3 +99,12 @@ def proposal (request):
     context = {}
 
     return render(request,'hawaii/proposal.html',context)
+
+@login_required()
+def Geoprocess (request):
+    """
+    Controller for the proposal page.
+    """
+    context = {}
+
+    return render(request,'hawaii/Geoprocess.html',context)

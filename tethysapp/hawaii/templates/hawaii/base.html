@@ -17,12 +17,14 @@
 {% url 'hawaii:background' as background_url %}
 {% url 'hawaii:mockups' as mockups_url %}
 {% url 'hawaii:proposal' as proposal_url %}
+{% url 'hawaii:Geoprocess' as Geoprocess_url %}
 
   <li class="title">App Navigation</li>
   <li class="{% if request.path == home_url %}active{% endif %}"><a href="{{home_url}}">Home</a></li>
   <li class="{% if request.path == background_url %}active{% endif %}"><a href="{{background_url}}">Background</a></li>
   <li class="{% if request.path == proposal_url %}active{% endif %}"><a href="{{proposal_url}}">Proposal</a></li>
   <li class="{% if request.path == mockups_url %}active{% endif %}"><a href="{{mockups_url}}">Mockups</a></li>
+  <li class="{% if request.path == Geoprocess_url %}active{% endif %}"><a href="{{Geoprocess_url}}">Geoprocessing Functions</a></li>
 
 
 {% endblock %}

@@ -1,0 +1,68 @@
+{% extends "hawaii/base.html" %}
+{% load static %}
+{% load tethys_gizmos %}
+
+{% block header_buttons %}
+  <div class="header-button glyphicon-button" data-toggle="tooltip" data-placement="bottom" title="Help">
+    <a data-toggle="modal" data-target="#help-modal"><span class="glyphicon glyphicon-question-sign"></span></a>
+  </div>
+{% endblock %}
+
+{% block app_content %}
+<!DOCTYPE html>
+
+  <h1>Background Information</h1>
+  <h4><em>Erosion rates on the Hawaiian Island.</em></h4>
+  <ul>
+	  <li><a href="#why">What is the mass flux rate on the Hawaiian Islands</a></li>
+	  <li><a href="#how">How does it work?</a></li>
+  </ul>
+  <section>
+    <article id="why">
+      <h2>What is the mass flux rate on the Hawaiian Islands?</h2>
+      <p>The Hawaiian Islands, known for its gorgeous beaches and beautiful hikes, are disappearing. But how fast are the islands being eroded? The big island is growing, but the others are only shrinking now. This app will give estimates on the flux of material out of Hawaii. This can be useful to researchers who want to know how much material is leaving. It also then provides an average rate to compare to modern rates from suspended load, solute and bed load.</p>
+    </article>
+    <figure>
+      <img src="{% static 'hawaii/images/IMG_4559.JPG' %}" width="400" hieght="300" alt="Waimea Canyon" id="WaimeaCanyon"><br/>
+      <figcaption>Waimea Canyon</figcaption>
+    </figure>
+    <article id="how">
+      <h2>How does it work?</h2>
+      <p>The user needs to choose a region they are interested in and draw a polygon on to the map. They then need to create points along the ridges in their chosen area.</p>
+      <p>The app will take these points and extract the elevation data from a DEM. It will then interpolate these points to create a new surface. This new surface is the <q>pre-erosion</q> surface using the assumption that there has been none or very little erosion at the ridges.</p>
+     <p>Then it will calculate the volume of the chosen area with the original DEM and the new surface. It will then find the volume of material that has left the system. Then, with an inputted age of the rock and the density, it will calculate the mass flux in t/km<sup>2</sup>/yr.</p>
+    </article>
+    <figure>
+      <img src="{% static 'hawaii/images/Oahu.jpeg' %}" width="400" hieght="300" alt="Oahu" id="Oahu"><br/>
+      <figcaption>Oahu</figcaption>
+    </figure>
+  </section>
+
+{% endblock %}
+
+{# Use the after_app_content block for modals #}
+{% block after_app_content %}
+  <!-- Example Modal -->
+  <div class="modal fade" id="help-modal" tabindex="-1" role="dialog" aria-labelledby="help-modal-label">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h5 class="modal-title" id="help-modal-label">Example Modal</h5>
+        </div>
+        <div class="modal-body">
+          <p>You can add custom buttons to the app header using the <code>header_buttons</code> block. Use anchor/link tags for the button and wrap it in a div with the class <code>header-button</code>. For buttons with the gliphyicons, add the <code>glyphicon-button</code> class as well.</p>
+          <p>Ever have trouble using a modal in a Tethys app? Use the <code>after_app_content</code> block for modal content to allow them to function properly. See: <a href="https://getbootstrap.com/javascript/#modals">Bootstrap Modals</a></p>
+          <p>Add tooltips to any element by adding the <code>data-toggle</code>, <code>data-placement</code>, and <code>title</code> attributes to the button. See: <a href="https://getbootstrap.com/javascript/#tooltips">Bootstrap Tooltips</a></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block app_actions %}
+{% endblock %}

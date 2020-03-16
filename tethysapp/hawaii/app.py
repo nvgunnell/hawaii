@@ -43,6 +43,11 @@ class Hawaii(TethysAppBase):
                 name='proposal',
                 url='proposal',
                 controller='hawaii.controllers.proposal'
+            ),
+            UrlMap(
+                name='Geoprocess',
+                url='Geoprocess',
+                controller='hawaii.controllers.Geoprocess'
             )
         )
 
