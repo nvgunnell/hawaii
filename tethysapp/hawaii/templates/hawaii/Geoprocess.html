@@ -10,33 +10,49 @@
 
 {% block app_content %}
 <!DOCTYPE html>
+<body>
+  <h1>Geoprocessing Functions</h1>
+  <h5>Introduction</h5>
+  <p>Here is a list of the Geoprocessing functions that will be required for the app to function</p>
+  <h5>The Functions</h5>
+  <table>
+    <tr>
+      <th>Function</th>
+      <th>Use</th>
+    </tr>
+    <tr>
+      <td>Import Point files and Shapefiles</td>
+      <td>Either the user can import the point shapefile along the ridges and a shapefile of the area they are
+      interested in or they can create them on the app and then import into the python code to be processed. </td>
+    </tr>
+    <tr>
+      <td>Clip Management</td>
+      <td>To Clip the DEM file to size of the inported shapefile</td>
+    </tr>
+    <tr>
+      <td>Zonal Statistics</td>
+      <td>To calcuale the total volume within the canyon</td>
+    </tr>
+    <tr>
+      <td>Interpolation Techniques (Kriging, IDW, Nearest neighbor)</td>
+      <td>To interpolate the ridge points to create a new surface</td>
+    </tr>
+    <tr>
+      <td>Extract Value to Point</td>
+      <td>Need to extratc elevation values from the DEM to the extract point</td>
+    </tr>
+    <tr>
+      <td>Raster Calcualtions</td>
+      <td>Both raster will need several calculation performedd on them</td>
+    </tr>
+    <tr>
+      <td>Change Projection</td>
+      <td>Need to make sure all files are on the same geographic projection</td>
+    </tr>
+  </table>
 
-  <h1>Background Information</h1>
-  <h4><em>Erosion rates on the Hawaiian Island.</em></h4>
-  <ul>
-	  <li><a href="#why">What is the mass flux rate on the Hawaiian Islands</a></li>
-	  <li><a href="#how">How does it work?</a></li>
-  </ul>
-  <section>
-    <article id="why">
-      <h2>What is the mass flux rate on the Hawaiian Islands?</h2>
-      <p>The Hawaiian Islands, known for its gorgeous beaches and beautiful hikes, are disappearing. But how fast are the islands being eroded? The big island is growing, but the others are only shrinking now. This app will give estimates on the flux of material out of Hawaii. This can be useful to researchers who want to know how much material is leaving. It also then provides an average rate to compare to modern rates from suspended load, solute and bed load.</p>
-    </article>
-    <figure>
-      <img src="{% static 'hawaii/images/IMG_4559.JPG' %}" width="400" hieght="300" alt="Waimea Canyon" id="WaimeaCanyon"><br/>
-      <figcaption>Waimea Canyon</figcaption>
-    </figure>
-    <article id="how">
-      <h2>How does it work?</h2>
-      <p>The user needs to choose a region they are interested in and draw a polygon on to the map. They then need to create points along the ridges in their chosen area.</p>
-      <p>The app will take these points and extract the elevation data from a DEM. It will then interpolate these points to create a new surface. This new surface is the <q>pre-erosion</q> surface using the assumption that there has been none or very little erosion at the ridges.</p>
-     <p>Then it will calculate the volume of the chosen area with the original DEM and the new surface. It will then find the volume of material that has left the system. Then, with an inputted age of the rock and the density, it will calculate the mass flux in t/km<sup>2</sup>/yr.</p>
-    </article>
-    <figure>
-      <img src="{% static 'hawaii/images/Oahu.jpeg' %}" width="400" hieght="300" alt="Oahu" id="Oahu"><br/>
-      <figcaption>Oahu</figcaption>
-    </figure>
-  </section>
+
+</body>
 
 {% endblock %}
 
