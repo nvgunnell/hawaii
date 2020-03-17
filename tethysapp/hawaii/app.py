@@ -48,6 +48,16 @@ class Hawaii(TethysAppBase):
                 name='Geoprocess',
                 url='Geoprocess',
                 controller='hawaii.controllers.Geoprocess'
+            ),
+            UrlMap(
+                name='teambios',
+                url='teambios',
+                controller='hawaii.controllers.teambios'
+            ),
+            UrlMap(
+                name='data',
+                url='data',
+                controller='hawaii.controllers.data'
             )
         )
 

@@ -108,3 +108,21 @@ def Geoprocess (request):
     context = {}
 
     return render(request,'hawaii/Geoprocess.html',context)
+
+@login_required()
+def teambios (request):
+    """
+    Controller for the teambios page.
+    """
+    context = {}
+
+    return render(request,'hawaii/teambios.html',context)
+
+@login_required()
+def data (request):
+    """
+    Controller for the data page.
+    """
+    context = {}
+
+    return render(request,'hawaii/data.html',context)

@@ -11,40 +11,35 @@
 {% block app_content %}
 <body>
 
-  <h1>Team Directory</h1>
+  <h1>Data Used in Geoprocessing</h1>
   <hr>
 
-  <h3>Joseph Tolworthy</h3>
-  <h5>Email: j.h.tolworthy@gmail.com</h5>
-  <img src="{% static 'hawaii/images/joseph.jpg' %}" id="joseph"><br/>
+  <h4>Digital Evelation Model (DEM)</h4>
+  <p>The primary data that is used in the geoprocessing of this application is DEM data of the Hawaiian Islands.
+    DEM data is data that provides elevation data at a given resolution. The resolution of the data can range from 30-meters
+     to 0.5-meters.
+    DEM data is widely available and is regularly updated. These two facts made the use of DEM data the best option
+    for calculating mass flux in the Hawaiian Islands. The image below is an map that was created to show the extents of the
+    DEM data that will be used in this application.</p>
+
+  <img src="{% static 'hawaii/images/data.PNG' %}" id="data"><br/>
   <hr>
 
-  <h3>Nathan Gunnell</h3>
-  <h5>Email: nathan.gunnell@gmail.com</h5>
-  <img src="{% static 'hawaii/images/nathan.jpg' %}" id="nathan"><br/>
-  <hr>
-
-  <h3>Nick Linton</h3>
-  <h5>Email: nlinton24@gmail.com</h5>
-  <img src="{% static 'hawaii/images/nick.jpg' %}" id="nick"><br/>
+  <h4>User Created Data</h4>
+  <p>To preform the mass flux calculation it is necessary to have a shapefile of points along the ridge of the canyon
+    where the mass flux is being calculated. This data will be created by the user on an interactive map that will be included
+    as part of this application. The points created by the user are used to calculate the mass flux of the area of interst. The area of
+    interst will also be defined by the user using an interactive map. The user will be able to create a ploygon on the interactive map
+    to define the area of interest.</p>
 
 <style>
-    #joseph {
+
+    #data {
       width: 500px;
       margin: 25px;
     }
 
-    #nathan {
-      width: 500px;
-      margin: 25px;
-    }
-
-    #nick {
-      width: 500px;
-      margin: 25px;
-    }
 </style>
-
 
 </body>
 {% endblock %}
